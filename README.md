@@ -1,8 +1,7 @@
 # Setup
 
-```
-yarn create nx-workspace --package-manager=yarn
-```
+1. `yarn create nx-workspace --package-manager=yarn`
+2. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile`
 
 ## React
 

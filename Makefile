@@ -1,7 +1,9 @@
-reactProject = react-showroom
-nodeJsProject = api
 
 react: structure-react redux sass libs-react libs-react-ui libs-svg extra-react
+
+react-clean:
+	yarn nx generate @nrwl/workspace:remove api-interfaces --forceRemove --no-interactive
+	yarn nx generate @nrwl/workspace:remove client-e2e --no-interactive
 
 structure-react:
 	mkdir -p apps/$(PROJECT)/src/components/lib && touch apps/$(PROJECT)/src/components/index.ts
@@ -36,9 +38,9 @@ stylesMixinsPath = $(stylesPath)/lib/mixins.scss
 sass:
 	mkdir -p $(stylesPath)/lib
 	touch $(stylesIndexPath) $(stylesVariablesPath) $(stylesMixinsPath)
-	cat tools/tmpls/sass/index.tmpl >> $(stylesIndexPath)
-	cat tools/tmpls/sass/variables.tmpl >> $(stylesVariablesPath)
-	cat tools/tmpls/sass/mixins.tmpl >> $(stylesMixinsPath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/sass/index.tmpl --silent >> $(stylesIndexPath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/sass/variables.tmpl --silent >> $(stylesVariablesPath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/sass/mixins.tmpl --silent >> $(stylesMixinsPath)
 
 storePath = apps/$(PROJECT)/src/store
 storeFilePath = $(storePath)/store.ts
@@ -47,8 +49,8 @@ reducersFilePath = $(storePath)/reducers.ts
 redux:
 	mkdir -p $(storePath)/slices/lib
 	touch $(storeFilePath) $(reducersFilePath) $(storePath)/slices/index.ts
-	cat tools/tmpls/redux/store.tmpl >> $(storeFilePath)
-	cat tools/tmpls/redux/reducers.tmpl >> $(reducersFilePath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/redux/store.tmpl --silent >> $(storeFilePath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/redux/reducers.tmpl --silent >> $(reducersFilePath)
 	yarn add @reduxjs/toolkit redux-thunk redux react-redux
 
 extra-react: react-other react-hook-form
@@ -87,8 +89,8 @@ routesIndexPath = $(storePath)/index.ts
 express-routes:
 	mkdir -p apps/$(PROJECT)/src/routes/lib
 	touch apps/$(PROJECT)/src/routes/index.ts $(routerFilePath)
-	cat tools/tmpls/express-routes/index.tmlp >> $(routesIndexPath)
-	cat tools/tmpls/express-routes/router.tmpl >> $(routesIndexPath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/index.tmlp --silent >> $(routesIndexPath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/router.tmpl --silent >> $(routesIndexPath)
 
 extra-express: express-other
 
@@ -99,14 +101,7 @@ workspace: eslint prettier
 
 eslint:
 	yarn add eslint-plugin-jest eslint-plugin-prettier -D
-	cat tools/tmpls/workspace/eslintrc.tmpl >> .eslintrc.json
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/workspace/eslintrc.tmpl >> .eslintrc.json
 
 prettier:
-	cat tools/tmpls/workspace/prettier.tmpl >> .prettierrc
-
-test:
-	echo "Look at this variable: $(booo)"
-
-# make ARGS="asdf" test
-# make test ARGS="11111"
-# make test PROJECT="client"
+	ccurl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/workspace/prettier.tmpl >> .prettierrc

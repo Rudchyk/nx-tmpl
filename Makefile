@@ -97,7 +97,7 @@ extra-express: express-other
 express-other:
 	yarn add cors
 
-workspace: eslint prettier
+workspace: eslint prettier generators
 
 eslint:
 	yarn add eslint-plugin-jest eslint-plugin-prettier -D
@@ -105,3 +105,8 @@ eslint:
 
 prettier:
 	ccurl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/workspace/prettier.tmpl >> .prettierrc
+
+generators:
+	curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip -o ./tools/generators.zip
+	"C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators
+	rm -rf tools/generators.zip

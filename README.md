@@ -2,24 +2,8 @@
 
 1. `yarn create nx-workspace --package-manager=yarn`
 2. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
-
-## Generators
-
-1. `curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip -o ./tools/generators.zip`
-2. `"C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators`
-3. `rm -rf tools/generators.zip`
-
-### redux
-
-1. `curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators/redux.zip -o ./tools/generators/redux.zip`
-2. `"C:/Program Files/7-Zip/7z.exe" x tools/generators/redux.zip -oC:/playground/nx-tmpl/tools/generators/redux`
-3. `rm -rf tools/generators/redux.zip`
-
-### element
-
-1. `curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators/element.zip -o ./tools/generators/element.zip`
-2. `"C:/Program Files/7-Zip/7z.exe" x tools/generators/element.zip -oC:/playground/nx-tmpl/tools/generators/element`
-3. `rm -rf tools/generators/element.zip`
+3. `make react PROJECT=client`
+4. `make express PROJECT=api`
 
 ## React
 

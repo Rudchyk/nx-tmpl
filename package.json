@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "pregenzip": "cd ./tools/generators && make clean",
+    "genzip": "cd ./tools/generators && make zip"
   },
   "private": true,
   "dependencies": {

@@ -111,7 +111,10 @@ export { ReactComponent as PrinterSvg } from './lib/printer.svg';
 ### Generators
 
 1. `yarn nx workspace-generator redux --no-interactive --name {TEST}`
-1. `yarn nx workspace-generator element --no-interactive --name {TEST}`
+2. `yarn nx workspace-generator element --no-interactive --name {TEST}`
+3. `cd /tools/generators`
+4. `make clean`
+5. `make zip`
 
 ### Helpers and tools
 

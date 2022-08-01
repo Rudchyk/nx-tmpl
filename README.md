@@ -106,6 +106,11 @@ index.ts
 export { ReactComponent as PrinterSvg } from './lib/printer.svg';
 ```
 
+### Generators
+
+1. `yarn nx workspace-generator redux --no-interactive --name {TEST}`
+1. `yarn nx workspace-generator element --no-interactive --name {TEST}`
+
 ### Helpers and tools
 
 - [classnames](https://www.npmjs.com/package/classnames)

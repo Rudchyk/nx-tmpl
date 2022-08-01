@@ -111,3 +111,8 @@ generators:
 	curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip -o ./tools/generators.zip
 	"C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators
 	rm -rf tools/generators.zip
+
+fix:
+	git add .
+	git commit -m "$(if $(m),$(m),"fix")"
+	git push

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "redux",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Slice name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "project": {
+      "type": "string",
+      "enum": ["react-showroom"],
+      "default": "react-showroom",
+      "description": "The project of the new slice."
+    }
+  },
+  "required": ["name"]
+}

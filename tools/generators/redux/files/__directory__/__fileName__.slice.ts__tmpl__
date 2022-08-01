@@ -1,0 +1,64 @@
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
+
+export const <%= constantName %>_KEY = '<%= propertyName %>';
+
+export interface <%= className %>State {
+  is<%= className %>Loading: boolean;
+  is<%= className %>Loaded: boolean;
+  <%= propertyName %>: number | null;
+  <%= propertyName %>ErrorMessage: string | null;
+}
+
+const initialState: <%= className %>State = {
+  is<%= className %>Loading: false,
+  is<%= className %>Loaded: false,
+  <%= propertyName %>: null,
+  <%= propertyName %>ErrorMessage: null,
+};
+
+export const fetch<%= className %> = createAsyncThunk<number>(
+  `${<%= constantName %>_KEY}/fetch<%= className %>`,
+  async (_, { dispatch, getState, rejectWithValue }) => {
+    try {
+      return 1;
+    } catch (error) {
+      const err = error as any;
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const select<%= className %>State = (state: RootState): <%= className %>State => state[<%= constantName %>_KEY];
+
+export const <%= propertyName %>Slice = createSlice({
+  name: <%= constantName %>_KEY,
+  initialState,
+  reducers: {
+    clear<%= className %>: (state) => {
+      state.<%= propertyName %> = null;
+      state.is<%= className %>Loaded = false;
+      state.is<%= className %>Loading = false;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetch<%= className %>.pending, (state) => {
+        state.is<%= className %>Loading = true;
+        state.is<%= className %>Loaded = false;
+      })
+      .addCase(fetch<%= className %>.fulfilled, (state, { payload }: PayloadAction<number>) => {
+        state.<%= propertyName %> = payload;
+        state.is<%= className %>Loaded = true;
+        state.is<%= className %>Loading = false;
+      })
+      .addCase(fetch<%= className %>.rejected, (state, action) => {
+        state.is<%= className %>Loading = false;
+        state.<%= propertyName %>ErrorMessage = action.error.message || null;
+      });
+  },
+});
+
+export const { clear<%= className %> } = <%= propertyName %>Slice.actions;
+
+export const <%= propertyName %>Reducer = <%= propertyName %>Slice.reducer;

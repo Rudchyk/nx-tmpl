@@ -1,0 +1,20 @@
+import { useEffect, useState, FC } from 'react';
+import cx from 'classnames';
+// import { useSelector, useDispatch } from 'react-redux';
+
+import styles from './<%= className %>.module.sass';
+
+/* eslint-disable-next-line */
+export interface <%= className %>Props {}
+
+export const <%= className %>: FC<<%= className %>Props> = (props) => {
+  // const dispatch = useDispatch();
+
+  return (
+    <div className={cx('container', styles.container)}>
+      <h1>Hello</h1>
+    </div>
+  );
+}
+
+export default <%= className %>;

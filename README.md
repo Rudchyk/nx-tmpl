@@ -14,35 +14,35 @@ yarn create nx-workspace --package-manager=yarn
   "compilerOptions": {
     ...,
     "paths": {
-      "@project/components": [
-        "apps/project/src/components/index.ts"
+      "@{PROJECT}/components": [
+        "apps/{PROJECT}/src/components/index.ts"
       ],
-      "@project/layouts": [
-        "apps/project/src/layouts/index.ts"
+      "@{PROJECT}/layouts": [
+        "apps/{PROJECT}/src/layouts/index.ts"
       ],
-      "@project/modules": [
-        "apps/project/src/modules/index.ts"
+      "@{PROJECT}/modules": [
+        "apps/{PROJECT}/src/modules/index.ts"
       ],
-      "@project/pages": [
-        "apps/project/src/pages/index.ts"
+      "@{PROJECT}/pages": [
+        "apps/{PROJECT}/src/pages/index.ts"
       ],
-      "@project/templates": [
-        "apps/project/src/templates/index.ts"
+      "@{PROJECT}/templates": [
+        "apps/{PROJECT}/src/templates/index.ts"
       ],
-      "@project/hooks": [
-        "apps/project/src/hooks/index.ts"
+      "@{PROJECT}/hooks": [
+        "apps/{PROJECT}/src/hooks/index.ts"
       ],
-      "@project/utils": [
-        "apps/project/src/utils/index.ts"
+      "@{PROJECT}/utils": [
+        "apps/{PROJECT}/src/utils/index.ts"
       ],
-      "@project/forms": [
-        "apps/project/src/forms/index.ts"
+      "@{PROJECT}/forms": [
+        "apps/{PROJECT}/src/forms/index.ts"
       ],
-      "@project/store": [
-        "apps/project/src/store/store.ts"
+      "@{PROJECT}/store": [
+        "apps/{PROJECT}/src/store/store.ts"
       ],
-      "@project/reducers": [
-        "apps/project/src/store/slices/index.ts"
+      "@{PROJECT}/reducers": [
+        "apps/{PROJECT}/src/store/slices/index.ts"
       ]
     }
   }
@@ -59,36 +59,36 @@ yarn create nx-workspace --package-manager=yarn
   "compilerOptions": {
     ...,
     "paths": {
-      "@project/controllers": [
-        "apps/project/src/controllers/index.ts"
+      "@{PROJECT}/controllers": [
+        "apps/{PROJECT}/src/controllers/index.ts"
       ],
-      "@project/decorators": [
-        "apps/project/src/decorators/index.ts"
+      "@{PROJECT}/decorators": [
+        "apps/{PROJECT}/src/decorators/index.ts"
       ],
-      "@project/models": [
-        "apps/project/src/models/index.ts"
+      "@{PROJECT}/models": [
+        "apps/{PROJECT}/src/models/index.ts"
       ],
-      "@project/routes": [
-        "apps/project/src/routes/index.ts"
+      "@{PROJECT}/routes": [
+        "apps/{PROJECT}/src/routes/index.ts"
       ],
-      "@project/services": [
-        "apps/project/src/services/index.ts"
+      "@{PROJECT}/services": [
+        "apps/{PROJECT}/src/services/index.ts"
       ],
-      "@project/validators": [
-        "apps/project/src/validators/index.ts"
+      "@{PROJECT}/validators": [
+        "apps/{PROJECT}/src/validators/index.ts"
       ],
-      "@project/utils": [
-        "apps/project/src/utils/index.ts"
+      "@{PROJECT}/utils": [
+        "apps/{PROJECT}/src/utils/index.ts"
       ],
-      "@project/middlewares": [
-        "apps/project/src/middlewares/index.ts"
+      "@{PROJECT}/middlewares": [
+        "apps/{PROJECT}/src/middlewares/index.ts"
       ]
     }
   }
 }
 ```
 
-### ./apps/{PROJECT}/tsconfig.json
+### ./apps/{{PROJECT}}/tsconfig.json
 
 ```
 {

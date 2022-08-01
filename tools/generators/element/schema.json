@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "element",
+  "title": "Nx Element Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Element name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "project": {
+      "type": "string",
+      "enum": ["react-showroom"],
+      "default": "react-showroom",
+      "description": "The project of the new element."
+    },
+    "directory": {
+      "type": "string",
+      "enum": ["pages", "modules", "layouts", "templates", "components"],
+      "default": "components",
+      "description": "The directory of the new element."
+    }
+  },
+  "required": ["name"]
+}

@@ -1,94 +1,118 @@
+# Setup
 
+```
+yarn create nx-workspace --package-manager=yarn
+```
 
-# NxTmpl
+## React
 
-This project was generated using [Nx](https://nx.dev).
+1. ./tsconfig.base.json
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+```
+{
+  ...,
+  "compilerOptions": {
+    ...,
+    "paths": {
+      "@project/components": [
+        "apps/project/src/components/index.ts"
+      ],
+      "@project/layouts": [
+        "apps/project/src/layouts/index.ts"
+      ],
+      "@project/modules": [
+        "apps/project/src/modules/index.ts"
+      ],
+      "@project/pages": [
+        "apps/project/src/pages/index.ts"
+      ],
+      "@project/templates": [
+        "apps/project/src/templates/index.ts"
+      ],
+      "@project/hooks": [
+        "apps/project/src/hooks/index.ts"
+      ],
+      "@project/utils": [
+        "apps/project/src/utils/index.ts"
+      ],
+      "@project/forms": [
+        "apps/project/src/forms/index.ts"
+      ],
+      "@project/store": [
+        "apps/project/src/store/store.ts"
+      ],
+      "@project/reducers": [
+        "apps/project/src/store/slices/index.ts"
+      ]
+    }
+  }
+}
+```
 
-🔎 **Smart, Fast and Extensible Build System**
+## Express
 
-## Adding capabilities to your workspace
+1. ./tsconfig.base.json
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+```
+{
+  ...,
+  "compilerOptions": {
+    ...,
+    "paths": {
+      "@project/controllers": [
+        "apps/project/src/controllers/index.ts"
+      ],
+      "@project/decorators": [
+        "apps/project/src/decorators/index.ts"
+      ],
+      "@project/models": [
+        "apps/project/src/models/index.ts"
+      ],
+      "@project/routes": [
+        "apps/project/src/routes/index.ts"
+      ],
+      "@project/services": [
+        "apps/project/src/services/index.ts"
+      ],
+      "@project/validators": [
+        "apps/project/src/validators/index.ts"
+      ],
+      "@project/utils": [
+        "apps/project/src/utils/index.ts"
+      ],
+      "@project/middlewares": [
+        "apps/project/src/middlewares/index.ts"
+      ]
+    }
+  }
+}
+```
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+### ./apps/{PROJECT}/tsconfig.json
 
-Below are our core plugins:
+```
+{
+  "compilerOptions": {
+    ...,
+    "noPropertyAccessFromIndexSignature": false,
+  }
+}
+```
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+### SVG
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+index.ts
 
-## Generate an application
+```
+export { ReactComponent as PrinterSvg } from './lib/printer.svg';
+```
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+### Helpers and tools
 
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@nx-tmpl/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- [classnames](https://www.npmjs.com/package/classnames)
+- [js-cookie](https://www.npmjs.com/package/js-cookie)
+- [React Timeout](https://github.com/plougsgaard/react-timeout)
+- [React error boundary component](https://github.com/bvaughn/react-error-boundary)
+- [react-i18next](https://react.i18next.com/)
+- [React Feature Toggles](https://github.com/paralleldrive/react-feature-toggles)
+- [mui](https://mui.com/)

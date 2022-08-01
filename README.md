@@ -5,7 +5,7 @@
 3. `make react-clean PROJECT=client`
 4. `make react PROJECT=client`
 5. `make express PROJECT=api`
-6. fill `apps/client/src/assets/robots.txt`
+6. fill `apps/client/src/assets/robots.txt`. [Example](https://github.com/Rudchyk/nx-tmpl/blob/main/apps/client/src/robots.txt)
 7. add in "apps/client/project.json" to targets.build.options.assets array "apps/client/src/robots.txt"
 
 ## React

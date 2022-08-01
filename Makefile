@@ -14,7 +14,7 @@ structure-react:
 	mkdir -p apps/$(PROJECT)/src/hooks/lib && touch apps/$(PROJECT)/src/hooks/index.ts
 	mkdir -p apps/$(PROJECT)/src/utils/lib && touch apps/$(PROJECT)/src/utils/index.ts
 	mkdir -p apps/$(PROJECT)/src/forms/lib && touch apps/$(PROJECT)/src/forms/index.ts
-	touch apps/$(PROJECT)/assets/robots.txt
+	touch apps/$(PROJECT)/robots.txt
 	touch apps/$(PROJECT)/.env.local
 	touch apps/$(PROJECT)/.env
 

@@ -3,7 +3,7 @@ react: structure-react redux sass libs-react libs-react-ui libs-svg extra-react
 
 react-clean:
 	yarn nx generate @nrwl/workspace:remove api-interfaces --forceRemove --no-interactive
-	yarn nx generate @nrwl/workspace:remove client-e2e --no-interactive
+	yarn nx generate @nrwl/workspace:remove $(PROJECT)-e2e --no-interactive
 
 structure-react:
 	mkdir -p apps/$(PROJECT)/src/components/lib && touch apps/$(PROJECT)/src/components/index.ts

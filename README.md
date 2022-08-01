@@ -2,7 +2,7 @@
 
 1. `yarn create nx-workspace --package-manager=yarn`
 2. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
-3. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
+3. `make react-clean PROJECT=client`
 4. `make react PROJECT=client`
 5. `make express PROJECT=api`
 6. fill `apps/client/src/assets/robots.txt`

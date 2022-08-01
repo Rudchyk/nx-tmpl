@@ -2,8 +2,11 @@
 
 1. `yarn create nx-workspace --package-manager=yarn`
 2. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
-3. `make react PROJECT=client`
-4. `make express PROJECT=api`
+3. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
+4. `make react PROJECT=client`
+5. `make express PROJECT=api`
+6. fill `apps/client/src/assets/robots.txt`
+7. add in "apps/client/project.json" to targets.build.options.assets array "apps/client/src/robots.txt"
 
 ## React
 

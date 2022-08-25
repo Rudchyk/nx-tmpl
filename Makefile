@@ -13,7 +13,7 @@ react: react-clean react-structure react-libs react-ui-libs svg-libs sass redux 
 react-clean:
 	rm -rf apps/$(CLIENT)/src/app/nx-welcome.tsx
 	echo "" > apps/$(CLIENT)/src/app/app.spec.tsx
-	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/react-structure/app.tmpl --silent >> apps/$(CLIENT)/src/app/app.tsx
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/react-structure/app.tmpl --silent > apps/$(CLIENT)/src/app/app.tsx
 	yarn nx generate @nrwl/workspace:remove $(CLIENT)-e2e --no-interactive
 
 react-structure:
@@ -102,6 +102,8 @@ mui:
 express: express-structure express-routes express-libs express-extra mongo
 
 express-clean:
+	rm -rf apps/$(API)/src/app
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-structure/main.tmpl --silent > apps/$(API)/src/main.ts
 	yarn nx generate @nrwl/workspace:remove api-interfaces --forceRemove --no-interactive
 
 express-setup:

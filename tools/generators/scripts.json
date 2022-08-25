@@ -1,0 +1,19 @@
+{
+  "ui:c": "nx workspace-generator lib-element --directory=\"components\" --no-interactive --name",
+  "service": "nx workspace-generator service --no-interactive --name",
+  "store": "nx workspace-generator redux --no-interactive --name",
+  "hook": "nx workspace-generator hook --no-interactive --name",
+  "hook:l": "nx workspace-generator hook --lib=\"hooks\" --no-interactive --name",
+  "util": "nx workspace-generator util --no-interactive --name",
+  "util:c": "nx workspace-generator util --lib=\"client\" --no-interactive --name",
+  "util:api": "nx workspace-generator util --lib=\"api\" --no-interactive --name",
+  "const": "nx workspace-generator constant --no-interactive --name",
+  "enum": "nx workspace-generator constant --no-interactive --type=\"enum\" --name",
+  "int": "nx workspace-generator interface --no-interactive --name",
+  "api:c": "nx workspace-generator express-controller --no-interactive --name",
+  "api:v": "nx workspace-generator express-validator --no-interactive --name",
+  "api:d": "nx workspace-generator express-decorator --no-interactive --name",
+  "model": "nx workspace-generator mongoose-model --no-interactive --name",
+  "route": "nx workspace-generator express-route --no-interactive --name",
+  "api:s": "nx workspace-generator api-service --no-interactive --name"
+}

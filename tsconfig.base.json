@@ -10,11 +10,42 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@api/mutations": [
+        "apps/api/src/mutations/index.ts"
+      ],
+      "@api/types": [
+        "apps/api/src/types/index.ts"
+      ],
+      "@client/controllers": [
+        "apps/client/src/controllers/index.ts"
+      ],
+      "@client/decorators": [
+        "apps/client/src/decorators/index.ts"
+      ],
+      "@client/middlewares": [
+        "apps/client/src/middlewares/index.ts"
+      ],
+      "@client/services": [
+        "apps/client/src/services/index.ts"
+      ],
+      "@client/utils": [
+        "apps/client/src/utils/index.ts"
+      ],
+      "@client/validators": [
+        "apps/client/src/validators/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

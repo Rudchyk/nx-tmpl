@@ -1,0 +1,4 @@
+{
+  "@__PROJECT__/reducers": ["apps/__PROJECT__/src/store/slices/index.ts"],
+  "@__PROJECT__/store": ["apps/__PROJECT__/src/store/store.ts"]
+}

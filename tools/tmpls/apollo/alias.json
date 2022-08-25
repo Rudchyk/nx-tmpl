@@ -1,0 +1,4 @@
+{
+  "@__PROJECT__/queries": ["apps/__PROJECT__/src/gql/queries/index.ts"],
+  "@__PROJECT__/mutations": ["apps/__PROJECT__/src/gql/mutations/index.ts"]
+}

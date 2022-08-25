@@ -1,0 +1,4 @@
+{
+  "@__PROJECT__/mutations": ["apps/__PROJECT__/src/mutations/index.ts"],
+  "@__PROJECT__/types": ["apps/__PROJECT__/src/types/index.ts"]
+}

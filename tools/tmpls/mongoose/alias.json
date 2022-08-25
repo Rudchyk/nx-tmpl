@@ -1,0 +1,3 @@
+{
+  "@__PROJECT__/models": ["apps/__PROJECT__/src/models/index.ts"]
+}

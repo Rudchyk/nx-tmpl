@@ -1,63 +1,27 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
+const fetchData = require('./fetchData');
 
-const args = process.argv.slice(2);
-const argsObj = {};
-const tsconfigPath = path.resolve(__dirname, '../../tsconfig.base.json');
+const scriptsPath = process.argv.slice(2)[0];
+const packagePath = path.resolve(__dirname, '../../package.json');
 
-args.forEach((arg) => {
-  const [key, val] = arg.split('=');
-
-  argsObj[key] = val;
-});
-
-function doRequest(path) {
-  return new Promise((resolve, reject) => {
-    const req = https.get(path, (res) => {
-      res.setEncoding('utf8');
-      let responseBody = '';
-
-      res.on('data', (chunk) => {
-        responseBody += chunk;
-      });
-
-      res.on('end', () => {
-        resolve(responseBody);
-      });
-    });
-
-    req.on('error', (err) => {
-      reject(err);
-    });
-
-    req.end();
-  });
-}
-
-const fetchData = async () => {
+const setup = async () => {
   try {
-    const data = await doRequest(argsObj.a);
-    return data;
+    const scripts = await fetchData(scriptsPath);
+    const scriptsObj = JSON.parse(scripts);
+    const packageJson = fs.readFileSync(packagePath, {
+      encoding: 'utf8',
+      flag: 'r',
+    });
+    const packageJsonObj = JSON.parse(packageJson);
+    packageJsonObj.scripts = {
+      ...packageJsonObj.scripts,
+      ...scriptsObj,
+    };
+    fs.writeFileSync(packagePath, JSON.stringify(packageJsonObj, null, 2));
   } catch (error) {
-    console.log('fetchData', error);
+    console.log('Error', error);
   }
 };
 
-try {
-  const aliasesTmpl = fetchData();
-  const aliases = aliasesTmpl.replace(/__PROJECT__/gm, argsObj.p);
-  const aliasesObj = JSON.parse(aliases);
-  const tsconfig = fs.readFileSync(tsconfigPath, {
-    encoding: 'utf8',
-    flag: 'r',
-  });
-  const tsConfigObj = JSON.parse(tsconfig);
-  tsConfigObj.compilerOptions.paths = {
-    ...tsConfigObj.compilerOptions.paths,
-    ...aliasesObj,
-  };
-  fs.writeFileSync(tsconfigPath, JSON.stringify(tsConfigObj, null, 2));
-} catch (error) {
-  console.log('Error', error);
-}
+setup();

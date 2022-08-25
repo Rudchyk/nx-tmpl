@@ -177,7 +177,7 @@ generators:
 	# curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip --silent -o ./tools/generators.zip
 	# "C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators
 	# rm -rf tools/generators.zip
-	node tools/utils/aliasModify.js a=https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/graphql/alias.json p=$(API)
+	node tools/utils/packageJsonModify.js https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/generators/scripts.json
 
 fix:
 	git add .

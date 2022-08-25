@@ -11,6 +11,9 @@ UI = ui
 react: react-clean react-structure react-libs react-ui-libs svg-libs sass redux react-extra
 
 react-clean:
+	rm -rf apps/$(CLIENT)/src/app/nx-welcome.tsx
+	echo "" > apps/$(CLIENT)/src/app/app.spec.tsx
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/react-structure/app.tmpl --silent >> apps/$(CLIENT)/src/app/app.tsx
 	yarn nx generate @nrwl/workspace:remove $(CLIENT)-e2e --no-interactive
 
 react-structure:
@@ -174,9 +177,9 @@ prettier:
 	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/workspace/prettier.tmpl --silent > .prettierrc
 
 generators:
-	# curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip --silent -o ./tools/generators.zip
-	# "C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators
-	# rm -rf tools/generators.zip
+	curl -L https://github.com/Rudchyk/nx-tmpl/raw/main/tools/generators.zip --silent -o ./tools/generators.zip
+	"C:/Program Files/7-Zip/7z.exe" x tools/generators.zip -oC:/playground/nx-tmpl/tools/generators
+	rm -rf tools/generators.zip
 	node tools/utils/packageJsonModify.js https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/generators/scripts.json
 
 fix:

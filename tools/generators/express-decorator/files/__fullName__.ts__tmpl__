@@ -1,0 +1,9 @@
+import { NextFunction } from "express";
+
+export type MethodController = (
+  req: Request,
+  res: Response,
+  next?: NextFunction
+) => Promise<void | Response>;
+
+export const <%= moduleName %> = (controllers: MethodController[]) => [...controllers];

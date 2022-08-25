@@ -1,0 +1,65 @@
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ChangeEvent } from 'react';
+import { Button, Grid, Box } from '@mui/material';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { UIFormTextField, WithRichForm } from '@ui';
+import { <%= interfaceName %> } from '@interfaces';
+import { <%= enumName %> } from '@constants';
+import styles from './<%= moduleName %>.module.sass';
+
+export const <%= moduleName %> = WithRichForm<<%= interfaceName %>>(({ onSubmit, onChange, alert, submitTrigger }) => {
+  const { t } = useTranslation();
+  const defaultValues: <%= interfaceName %> = {
+    [<%= enumName %>.TEXT]: '',
+  };
+  const validationSchema = yup.object().shape({
+    [<%= enumName %>.TEXT]: yup.string().required(),
+  });
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<<%= interfaceName %>>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
+  const onFormSubmit: SubmitHandler<<%= interfaceName %>> = (formData) => {
+    console.log('<%= moduleName %>', 'onSubmit', formData);
+    onSubmit(formData);
+  };
+  const onFormError: SubmitErrorHandler<<%= interfaceName %>> = (errors) => {
+    console.log('<%= moduleName %>', 'onError', errors);
+  };
+  const onFormChange = (event: ChangeEvent<HTMLFormElement>) => {
+    console.log('<%= moduleName %>', event);
+  };
+
+  return (
+    <form onChange={onFormChange} onSubmit={handleSubmit(onFormSubmit, onFormError)} noValidate>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <UIFormTextField
+            margin="none"
+            fieldKey={<%= enumName %>.TEXT}
+            register={register}
+            errors={errors}
+            autoFocus
+            required
+            fullWidth
+            label={t('text')}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button type="submit" fullWidth variant="contained">
+            {t('Submit')}
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
+  );
+});
+
+export default <%= moduleName %>;

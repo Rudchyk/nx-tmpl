@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "element",
+  "title": "Nx Util Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Element name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "lib": {
+      "type": "string",
+      "enum": ["utils", "client", "api"],
+      "default": "utils",
+      "description": "The lib of the new util."
+    }
+  },
+  "required": ["name"]
+}

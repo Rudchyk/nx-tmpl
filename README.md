@@ -3,10 +3,11 @@
 1. `yarn create nx-workspace --package-manager=yarn`
 2. `curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/Makefile -o Makefile -s`
 3. `make react-clean PROJECT=client`
-4. `make react PROJECT=client`
-5. `make express PROJECT=api`
-6. fill `apps/client/src/assets/robots.txt`. [Example](https://github.com/Rudchyk/nx-tmpl/blob/main/apps/client/src/robots.txt)
-7. add in "apps/client/project.json" to targets.build.options.assets array "apps/client/src/robots.txt"
+4. `make react` || `make react c=gui`
+5. `make express` || `make express a=backend`
+6. `make workspace`
+7. fill `apps/client/src/assets/robots.txt`. [Example](https://github.com/Rudchyk/nx-tmpl/blob/main/apps/client/src/robots.txt)
+8. add in "apps/client/project.json" to targets.build.options.assets array "apps/client/src/robots.txt"
 
 ## React
 
@@ -101,6 +102,10 @@
     "noPropertyAccessFromIndexSignature": false,
   }
 }
+```
+
+```
+export * from './lib/interfaces-api';
 ```
 
 ### SVG

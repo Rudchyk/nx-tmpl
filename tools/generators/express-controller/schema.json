@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "expressController",
+  "title": "Nx Express Controller Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Controller name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "group": {
+      "type": "string",
+      "alias": "g",
+      "default": "",
+      "description": "The group of the new controller."
+    }
+  },
+  "required": ["name"]
+}

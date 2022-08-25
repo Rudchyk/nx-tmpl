@@ -1,0 +1,7 @@
+import { <%= propertyName %>Init } from './<%= propertyName %>.service';
+
+describe('<%= propertyName %> service', () => {
+  it('should work', () => {
+    expect(<%= propertyName %>Init()).toHaveBeenCalled();
+  });
+});

@@ -1,0 +1,5 @@
+import store from '@client/store';
+
+export const <%= propertyName %>Init = () => {
+  alert('<%= propertyName %>Init');
+};

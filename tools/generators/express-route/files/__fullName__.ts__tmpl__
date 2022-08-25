@@ -1,0 +1,6 @@
+import { APIRoutesEnum } from '@constants';
+import { router } from '../router';
+
+router.get(APIRoutesEnum./<%= propertyName %>, (req, res) => {
+  res.send({ message: 'Welcome to api!' });
+});

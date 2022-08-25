@@ -1,0 +1,12 @@
+import { useState, useCallback, useEffect } from 'react';
+
+/* eslint-disable-next-line */
+export interface Use<%= className %>Props {}
+
+export const use<%= className %> = (props: Use<%= className %>Props) => {
+  const [count, setCount] = useState(0);
+  const increment = useCallback(() => setCount((x) => x + 1), []);
+  return { count, increment };
+}
+
+export default use<%= className %>;

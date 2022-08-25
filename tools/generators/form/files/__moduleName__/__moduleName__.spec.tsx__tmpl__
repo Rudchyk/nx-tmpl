@@ -1,0 +1,11 @@
+import { render } from '@testing-library/react';
+import { <%= interfaceName %> } from '@interfaces';
+import <%= moduleName %> from './<%= moduleName %>';
+
+describe('<%= moduleName %>', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<<%= moduleName %> onSubmit={(formData: <%= interfaceName %>) => alert(formData)}/>);
+
+    expect(baseElement).toBeTruthy();
+  });
+});

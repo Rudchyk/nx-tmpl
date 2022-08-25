@@ -1,0 +1,38 @@
+import { Document, Schema, model, Model } from 'mongoose';
+
+export interface <%= className %>SchemaInterface extends Document {
+  createdAt: Date;
+  name: string;
+  get(): any;
+}
+
+type <%= className %>ModelInterface = Model<<%= className %>SchemaInterface>;
+
+const <%= className %>Schema = new Schema<
+  <%= className %>SchemaInterface,
+  <%= className %>ModelInterface
+>({
+  createdAt: Date,
+  name: String,
+});
+
+<%= className %>Schema.pre('save', function () {
+  this.createdAt = new Date();
+});
+
+<%= className %>Schema.methods.get = function () {
+  const schemaObj = this.toObject();
+
+  schemaObj.id = schemaObj._id;
+  delete schemaObj._id;
+  delete schemaObj.__v;
+
+  return schemaObj;
+};
+
+export const <%= className %>Model = model<
+  <%= className %>SchemaInterface,
+  <%= className %>ModelInterface
+>('<%= className %>', <%= className %>Schema);
+
+export default <%= className %>Model;

@@ -1,0 +1,28 @@
+import { GraphQLObjectType } from 'graphql';
+// default-imports
+
+/*
+  ./tsconfig.base.json
+  {
+    ...,
+    compilerOptions: {
+      ...,
+      paths: {
+        ...,
+        "@api/mutations": ["apps/${API}/src/mutations/index.ts"],
+        ....
+      },
+      ...
+    },
+    ...
+  }
+*/
+
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    // mutation
+  },
+});
+
+export default mutation;

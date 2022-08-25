@@ -1,0 +1,30 @@
+import { Story, Meta } from '@storybook/react';
+import { withCustomDocs, getFormSnippet } from '@storybook/utils';
+import { useStoryForm } from '@ui/hooks';
+import { useDefaultSubmitForm } from '@hooks';
+import <%= moduleName %>Component from './<%= moduleName %>';
+
+export default {
+  component: <%= className %>FormComponent,
+  title: 'Client Forms/<%= name %>',
+  parameters: {
+    ...withCustomDocs({ code: getFormSnippet('<%= moduleName %>') })
+  },
+  argTypes: {}
+} as Meta;
+
+const Template: Story = (args, cx) => {
+  const { onSubmit, onChange, submitTrigger, uiAlert } = useStoryForm('Submit text');
+  const { defaultSubmit } = useDefaultSubmitForm(submitTrigger);
+
+  return (
+    <>
+      <<%= moduleName %>Component {...args} onChange={onChange} onSubmit={onSubmit} />
+      {defaultSubmit}
+      {uiAlert}
+    </>
+  )
+};
+
+export const <%= moduleName %> = Template.bind({});
+<%= moduleName %>.args = {};

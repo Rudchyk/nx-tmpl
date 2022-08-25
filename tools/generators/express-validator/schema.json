@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "expressController",
+  "title": "Nx Express Validators Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Validator name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "group": {
+      "type": "string",
+      "alias": "g",
+      "default": "",
+      "description": "The group of the new validator."
+    }
+  },
+  "required": ["name"]
+}

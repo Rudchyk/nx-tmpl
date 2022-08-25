@@ -1,0 +1,28 @@
+import * as yup from 'yup';
+import { Request, Response, NextFunction } from 'express';
+import { useControllerResponses } from '@api/utils';
+// import {} from '@interfaces';
+
+interface RequestBody {
+  data: any;
+}
+
+const schema = yup.object().shape({
+  text: yup.string().required(),
+});
+
+export const <%= moduleName %> = async (req: Request, res: Response, next: NextFunction) => {
+  const { errorResponse } = useControllerResponses(res, '<%= moduleName %>');
+
+  try {
+    const { data } = req.body as RequestBody;
+
+    await schema.validate(data);
+
+    return next();
+  } catch (error) {
+    return errorResponse(error);
+  }
+};
+
+export default <%= moduleName %>;

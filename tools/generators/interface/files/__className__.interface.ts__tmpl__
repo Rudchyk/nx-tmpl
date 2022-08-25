@@ -1,0 +1,7 @@
+export interface <%= className %>Interface {
+  id: string;
+};
+
+export interface <%= className %>ModelInterface extends <%= className %>Interface {
+  name: string;
+};

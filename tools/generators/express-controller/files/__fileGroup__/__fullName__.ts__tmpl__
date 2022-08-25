@@ -1,0 +1,23 @@
+import { Request, Response } from 'express';
+import { useControllerResponses } from '@api/utils';
+// import {} from '@interfaces';
+
+interface RequestBody {
+  data: any;
+}
+
+export const <%= moduleName %> = async (req: Request, res: Response) => {
+  const { errorResponse, successResponse } = useControllerResponses(res, '<%= moduleName %>');
+
+  try {
+    const { data } = req.body as RequestBody;
+
+    return successResponse<any>({
+      message: 'success message!',
+    });
+  } catch (error) {
+    return errorResponse(error);
+  }
+};
+
+export default <%= moduleName %>;

@@ -166,7 +166,7 @@ express-routes:
 express-extra:
 	yarn add cors axios consola cookie-parser express-session moment morgan winston http-errors
 
-workspace: eslint prettier generators
+workspace: eslint prettier
 	yarn nx generate @nrwl/workspace:library --no-component --name=$(UTILS) --importPath=@$(UTILS) --no-interactive
 	mkdir -p libs/$(UTILS)/src/lib && touch libs/$(UTILS)/src/index.ts
 	yarn add cross-env

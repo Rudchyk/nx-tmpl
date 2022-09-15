@@ -7,5 +7,6 @@
   "@__PROJECT__/providers": ["apps/__PROJECT__/src/providers/index.ts"],
   "@__PROJECT__/services": ["apps/__PROJECT__/src/services/index.ts"],
   "@__PROJECT__/templates": ["apps/__PROJECT__/src/templates/index.ts"],
-  "@__PROJECT__/utils": ["apps/__PROJECT__/src/utils/index.ts"]
+  "@__PROJECT__/utils": ["apps/__PROJECT__/src/utils/index.ts"],
+  "@__PROJECT__/routes": ["apps/__PROJECT__/src/routes/routes.ts"]
 }

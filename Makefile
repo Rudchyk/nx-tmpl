@@ -27,7 +27,8 @@ react-structure:
 	mkdir -p apps/$(CLIENT)/src/services/lib && touch apps/$(CLIENT)/src/services/index.ts
 	mkdir -p apps/$(CLIENT)/src/templates/lib && touch apps/$(CLIENT)/src/templates/index.ts
 	mkdir -p apps/$(CLIENT)/src/utils/lib && touch apps/$(CLIENT)/src/utils/index.ts
-	touch apps/$(CLIENT)/robots.txt
+	mkdir -p apps/$(CLIENT)/src/routes && touch apps/$(CLIENT)/src/routes/routes.ts
+	touch apps/$(CLIENT)/src/robots.txt
 	touch apps/$(CLIENT)/.env.local
 	touch apps/$(CLIENT)/.env
 	node tools/utils/aliasModify.js a=https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-structure/alias.json p=$(CLIENT)
@@ -47,7 +48,7 @@ react-ui-libs:
 	yarn nx generate @nrwl/workspace:remove $(UI)-e2e --no-interactive
 
 react-extra:
-	yarn add classnames
+	yarn add classnames js-cookie
 
 SVG = svg
 
@@ -56,8 +57,8 @@ react-hook-form:
 	mkdir -p apps/$(CLIENT)/src/forms/lib && touch apps/$(CLIENT)/src/forms/index.ts
 	node tools/utils/aliasModify.js a=https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/react-hook-form/alias.json p=$(CLIENT)
 
-svg-libs:
-	yarn nx generate @nrwl/workspace:library --name=$(SVG) --importPath=@$(SVG) --style=none --no-component --unitTestRunner=none --no-interactive
+svg-lib:
+	yarn nx generate @nrwl/react:library --name=$(SVG) --importPath=@$(SVG) --style=none --no-component --unitTestRunner=none --no-interactive
 	mkdir libs/$(SVG)/src/lib && touch libs/$(SVG)/src/index.ts
 
 STYLES_PATH = apps/$(CLIENT)/src/styles
@@ -99,7 +100,7 @@ redux:
 mui:
 	yarn add @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/lab
 
-express: express-structure express-routes express-libs express-extra mongo
+express: express-clean express-structure express-routes express-libs express-extra mongo
 
 express-clean:
 	rm -rf apps/$(API)/src/app
@@ -152,18 +153,18 @@ express-libs:
 	yarn nx generate @nrwl/workspace:library --name=$(API) --no-component --directory=$(CONSTANTS) --importPath=@$(API)/$(CONSTANTS) --unitTestRunner=none --no-interactive
 	mkdir -p libs/$(CONSTANTS)/$(API)/src/lib && touch libs/$(CONSTANTS)/$(API)/src/index.ts
 
-ROUTESPATH = apps/$(CLIENT)/src/routes
-ROUTERFILEPATH = $(storePath)/router.ts
-ROUTESINDEXPATH = $(storePath)/index.ts
+ROUTESPATH = apps/$(API)/src/routes
+ROUTERFILEPATH = $(ROUTESPATH)/router.ts
+ROUTESINDEXPATH = $(ROUTESPATH)/index.ts
 
 express-routes:
-	mkdir -p apps/$(CLIENT)/src/routes/lib
-	touch apps/$(CLIENT)/src/routes/index.ts $(routerFilePath)
-	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/index.tmlp --silent >> $(routesIndexPath)
-	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/router.tmpl --silent >> $(routesIndexPath)
+	mkdir -p $(ROUTESPATH)/lib
+	touch $(ROUTESPATH)/index.ts $(routerFilePath)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/index.tmpl --silent >> $(ROUTESINDEXPATH)
+	curl https://raw.githubusercontent.com/Rudchyk/nx-tmpl/main/tools/tmpls/express-routes/router.tmpl --silent >> $(ROUTERFILEPATH)
 
 express-extra:
-	yarn add cors
+	yarn add cors axios consola cookie-parser express-session moment morgan winston http-errors
 
 workspace: eslint prettier generators
 	yarn nx generate @nrwl/workspace:library --no-component --name=$(UTILS) --importPath=@$(UTILS) --no-interactive

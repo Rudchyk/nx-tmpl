@@ -1,5 +1,5 @@
 import { Tree, formatFiles, names, getProjects, generateFiles, joinPathFragments, installPackagesTask } from '@nrwl/devkit';
-import { addExportsToBarrel } from '../../utils';
+import { addExportsToBarrel } from '../../utils/nx/addExportsToBarrel';
 
 const normalizeOptions = (tree: Tree, schema: any) => {
   const extraNames = names(schema.name);

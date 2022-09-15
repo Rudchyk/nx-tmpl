@@ -1,11 +1,12 @@
 import { Tree, formatFiles, names, getProjects, generateFiles, joinPathFragments, installPackagesTask } from '@nrwl/devkit';
 import { camelCase, capitalize } from 'lodash';
-import { addExportsToBarrel } from '../../utils';
+import { addExportsToBarrel } from '../../utils/nx/addExportsToBarrel';
 
 const normalizeOptions = (tree: Tree, schema: any) => {
   const extraNames = names(schema.name);
   const projects = getProjects(tree);
-  const project = projects.get('constants');
+  const folder = 'constants';
+  const project: any = projects.get(`${folder}-${schema.project}`);
   const { sourceRoot, projectType } = project;
   const isEnum = schema.type === 'enum';
   const fullName = `${isEnum ? extraNames.className : extraNames.propertyName}.${schema.type}`;

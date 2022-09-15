@@ -1,11 +1,11 @@
 import { Tree, formatFiles, names, getProjects, generateFiles, joinPathFragments, installPackagesTask } from '@nrwl/devkit';
 import { capitalize, camelCase } from 'lodash';
-import { addExportsToBarrel } from '../../utils';
+import { addExportsToBarrel } from '../../utils/nx/addExportsToBarrel';
 
 const normalizeOptions = (tree: Tree, schema: any) => {
   const extraNames = names(schema.name);
   const projects = getProjects(tree);
-  const project = projects.get('api');
+  const project: any = projects.get('api');
   const { sourceRoot, projectType } = project;
   const fullName = `${extraNames.propertyName}${capitalize(schema.group)}.controller`;
   const fileGroup = `${schema.group || 'common'}`;

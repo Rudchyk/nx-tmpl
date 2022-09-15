@@ -1,11 +1,11 @@
 import { Tree, formatFiles, names, getProjects, generateFiles, joinPathFragments, installPackagesTask } from '@nrwl/devkit';
-import { addExportsToBarrel } from '../../utils';
+import { addExportsToBarrel } from '../../utils/nx/addExportsToBarrel';
 
 const normalizeOptions = (tree: Tree, schema: any) => {
   const extraNames = names(schema.name);
   const projects = getProjects(tree);
   const isUtilLib = schema.lib === 'utils';
-  const project = projects.get(schema.lib);
+  const project: any = projects.get(schema.lib);
   const { sourceRoot, projectType } = project;
   const indexFileDirPath = isUtilLib ? project.sourceRoot : `${project.sourceRoot}/utils`;
 

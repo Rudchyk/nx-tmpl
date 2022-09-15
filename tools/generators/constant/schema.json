@@ -18,6 +18,12 @@
       "enum": ["constant", "enum"],
       "default": "constant",
       "description": "The type of the new constant."
+    },
+    "project": {
+      "type": "string",
+      "enum": ["gui", "api"],
+      "default": "gui",
+      "description": "The project of the new constant or enum."
     }
   },
   "required": ["name"]
